@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/MU-Logo.png" alt="MU Logo">
+        </div>
+    </header>
+    <main>
+        <div id="main-menu" class="content-1">
+            <h2>Bienvenido al Campus</h2>
+                <h3>¿Qué quieres hacer?</h3>
+                <div class="btns-container">
+                    <button type="button" onclick="signUp()">Registrar alumno</button>
+                    <button type="button" onclick="showStudents()">Mostrar alumnos</button>
+                    <button type="button" onclick="subjectMenu()">Entrar a un grupo</button>
+                </div>
+        </div>
+        <div id="student-signUp" class="stud-sign-container">
+            <h2>Registro de Alumno</h2>
+            <form>
+                <label for="name" >Nombre</label>
+                <input type="text" id="name" name="name">
+                <label for="lastName" >Apellido</label>
+                <input type="text" id="lastName" name="lastName">
+                <label for="age" >Edad</label>
+                <input type="number" id="age" name="age">
+                <div class="signUp-submit">
+                    <button type="button" onclick="registerStudent()">Registrar</button>
+                </div>
+            </form>
+        </div>
+        <div id="students-list-page" class="students-list-container">
+            <h2>Alumnos inscritos en el Campus</h2>
+            <table id="students-table"></table>
+        </div>
+        <div id="subjects" class="menu-subjects-container">
+            <h2>Selecciona una clase</h2>
+            <div class="subjects-container">
+                <button type="button" onclick="showScaresGroup()">Introducción a los sustos</button>
+                <button type="button" onclick="showHistoryGroup()">Historia del miedo</button>
+                <button type="button" onclick="showDoorGroup()">Tecnología de las Puertas</button>
+                <button type="button" onclick="showLabGroup()">Laboratorio de sustos</button>
+            </div>
+        </div>
+        <div id="group-scares" class="scares-groups-container">
+            <h2>Selecciona un grupo</h2>
+            <div class="subjects-container">
+                <button type="button" onclick="showScaresGroupA()">Introducción a los sustos Grupo A</button>
+                <button type="button" onclick="showScaresGroupB()">Introducción a los sustos Grupo B</button>
+            </div>
+        </div>
+        <div id="group-history" class="history-groups-container">
+            <h2>Selecciona un grupo</h2>
+            <div class="subjects-container">
+                <button type="button" onclick="showHistoryGroupA()">Historia del miedo Grupo A</button>
+                <button type="button" onclick="showHistoryGroupB()">Historia del miedo Grupo B</button>
+            </div>
+        </div>
+        <div id="group-door" class="door-groups-container">
+            <h2>Selecciona un grupo</h2>
+            <div class="subjects-container">
+                <button type="button" onclick="showDoorGroupA()">Tecnología de las Puertas Grupo A</button>
+                <button type="button" onclick="showDoorGroupB()">Tecnología de las Puertas Grupo B</button>
+            </div>
+        </div>
+        <div id="group-lab" class="lab-groups-container">
+            <h2>Selecciona un grupo</h2>
+            <div class="subjects-container">
+                <button type="button" onclick="showLabGroupA()">Laboratorio de sustos Grupo A</button>
+                <button type="button" onclick="showLabGroupB()">Laboratorio de sustos Grupo B</button>
+            </div>
+        </div>
+        <div id="scares-groupA" class="scares-groupA-container">
+            <h2>Introducción a los sustos Grupo A</h2>
+            <table id="selected-scares-groupA-students" class="group-students-container"></table>
+            <div class="actions-buttons-container">
+                <button onclick="orderByName()">Ordenar por Nombre</button>
+                <button onclick="saveGrades()">Guardar calificaciones</button>
+                <button onclick="orderByGrade()">Ordenar por Calificación</button>
+                <div class="buscar-container">
+                    <button>Buscar Alumno</button>
+                    <input type="text" id="buscar" name="buscar">
+                </div>
+            </div>
+        </div>
+            <div id="scares-groupB" class="scares-groupB-container">
+                <h2>Introducción a los sustos Grupo B</h2>
+                <table id="selected-scares-groupB-students" class="group-students-container"></table>
+            </div>
+        </div>
+        <div class="history-container">
+            <div id="history-groupA" class="history-groupA-container">
+                <h2>Historia del miedo Grupo A</h2>
+                <table id="selected-history-groupA-students"></table>
+            </div>
+            <div id="history-groupB" class="history-groupB-container">
+                <h2>Historia del miedo Grupo B</h2>
+                <table id="selected-history-groupB-students"></table>
+            </div>
+        </div>
+        <div class="door-container">
+            <div id="door-groupA" class="door-groupA-container">
+                <h2>Tecnología de las Puertas Grupo A</h2>
+                <table id="selected-door-groupA-students"></table>
+            </div>
+            <div id="door-groupB" class="door-groupB-container">
+                <h2>Tecnología de las Puertas Grupo B</h2>
+                <table id="selected-door-groupB-students"></table>
+            </div>
+        </div>
+        <div class="lab-container">
+            <div id="lab-groupA" class="lab-groupA-container">
+                <h2>Laboratorio de sustos Grupo A</h2>
+                <table id="selected-lab-groupA-students"></table>
+            </div>
+            <div id="lab-groupB" class="lab-groupB-container">
+                <h2>Laboratorio de sustos Grupo B</h2>
+                <table id="selected-lab-groupB-students"></table>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
